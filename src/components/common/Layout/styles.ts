@@ -6,5 +6,9 @@ export const MainContainer = styled.main(
     height: 100vh;
 
     background-color: ${colors.dark};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   `
 )
