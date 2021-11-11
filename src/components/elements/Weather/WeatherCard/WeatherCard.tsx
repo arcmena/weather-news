@@ -14,8 +14,6 @@ import {
 } from './styles'
 
 export default function WeatherCard({ weatherData }: WeatherCardProps) {
-  console.log(weatherData)
-
   const { sys, weather, main, name } = weatherData
 
   const temperature = formatTemperature(main.temp)
