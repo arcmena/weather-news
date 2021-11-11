@@ -26,9 +26,9 @@ const Setup = () => (
 )
 
 describe('<App />', () => {
-  beforeEach(() => mockCurrentPosition())
-
   it('should render without crashing', async () => {
+    mockCurrentPosition()
+
     const { getByTestId } = renderWithClient(<Setup />)
 
     await waitForElementToBeRemoved(getByTestId('loader'))
@@ -39,6 +39,14 @@ describe('<App />', () => {
 
     expect(getByTestId('weather-condition')).toHaveTextContent(
       currentWeather.main
+    )
+  })
+
+  it('should show modal to allow access to browser location', async () => {
+    const { getByTestId } = renderWithClient(<Setup />)
+
+    expect(getByTestId('modal-geolocation-error')).toHaveTextContent(
+      'Please allow us to use your location'
     )
   })
 })
