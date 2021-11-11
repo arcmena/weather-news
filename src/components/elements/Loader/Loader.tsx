@@ -65,7 +65,7 @@ const Elipsis = styled.div(
 
 export default function Loader() {
   return (
-    <Elipsis>
+    <Elipsis data-testid="loader">
       <div></div>
       <div></div>
       <div></div>
