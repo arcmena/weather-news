@@ -1,9 +1,9 @@
-import { WEATHER_ICON_SIZE } from '../constants/weatherConstants'
+import { WEATHER_ICON_SIZE, WEATHER_UNIT } from '../constants/weatherConstants'
 
 export const formatTemperature = (temp: number) => {
   const [decimal, _fraction] = String(temp).split('.')
 
-  return `${decimal} °C`
+  return `${decimal} ${WEATHER_UNIT.SYMBOL}`
 }
 
 export const weatherIcon = (icon: string) =>
