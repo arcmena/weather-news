@@ -12,6 +12,7 @@ const Container = styled.button(
     border-radius: 4px;
 
     padding: ${spacing[2]};
+    margin-top: ${spacing[6]};
 
     background-color: ${transparentize(0.8, colors.dark)};
   `

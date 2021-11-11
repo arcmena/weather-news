@@ -6,9 +6,5 @@ export const WeatherContainer = styled.div(
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    button {
-      margin-top: ${spacing[6]};
-    }
   `
 )

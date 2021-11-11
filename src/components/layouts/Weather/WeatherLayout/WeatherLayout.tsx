@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import Loader from '../../../elements/Loader'
 import WeatherCard from '../../../elements/Weather/WeatherCard'
 import WeatherRefetchButton from '../../../elements/Weather/WeatherRefetchButton'
+import WeatherError from '../../../elements/Weather/WeatherError'
 
 import { getWeather } from '../../../../services/weatherService'
 
@@ -31,7 +32,12 @@ export default function WeatherLayout({ position }: WeatherLayoutProps) {
   }
 
   if (isWeatherError) {
-    return <div>error</div>
+    return (
+      <>
+        <WeatherError />
+        <WeatherRefetchButton onRefetch={refeshWeather} />
+      </>
+    )
   }
 
   if (weatherData) {
