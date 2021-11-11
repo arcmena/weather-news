@@ -22,7 +22,7 @@ export default function WeatherRefetchButton({
   onRefetch
 }: WeatherRefetchButtonProps) {
   return (
-    <Container onClick={onRefetch}>
+    <Container onClick={onRefetch} data-testid="weather-refetch">
       <Refetch />
     </Container>
   )

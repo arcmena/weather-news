@@ -26,13 +26,23 @@ export default function WeatherCard({ weatherData }: WeatherCardProps) {
 
   return (
     <WeatherCardContainer>
-      <WeatherCardIcon src={weatherIconSource} alt={weatherCondition.main} />
+      <WeatherCardIcon
+        data-testid="weather-icon"
+        src={weatherIconSource}
+        alt={weatherCondition.main}
+      />
 
-      <WeatherCardCondition>{weatherCondition.main}</WeatherCardCondition>
+      <WeatherCardCondition data-testid="weather-condition">
+        {weatherCondition.main}
+      </WeatherCardCondition>
 
-      <WeatherCardTemperature>{temperature}</WeatherCardTemperature>
+      <WeatherCardTemperature data-testid="weather-temperature">
+        {temperature}
+      </WeatherCardTemperature>
 
-      <WeatherCardLocalization>{localization}</WeatherCardLocalization>
+      <WeatherCardLocalization data-testid="weather-localization">
+        {localization}
+      </WeatherCardLocalization>
     </WeatherCardContainer>
   )
 }

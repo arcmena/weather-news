@@ -8,7 +8,7 @@ interface ModalProps {
 
 export default function Modal({ children }: ModalProps) {
   return (
-    <ContainerRoot>
+    <ContainerRoot data-testid="modal">
       <Container>{children}</Container>
     </ContainerRoot>
   )
