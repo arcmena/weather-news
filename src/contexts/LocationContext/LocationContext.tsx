@@ -1,16 +1,16 @@
 import { createContext, useEffect, useState } from 'react'
 
+import { TPosition } from '../../types/Position'
 import {
   ILocationContextProps,
   ILocationProviderProps,
-  TPosition,
   TPositionError
 } from './types'
 
 export const LocationContext = createContext({} as ILocationContextProps)
 
 export const LocationProvider = ({ children }: ILocationProviderProps) => {
-  const [position, setPosition] = useState<TPosition>(null)
+  const [position, setPosition] = useState<TPosition>()
   const [positionError, setPositionError] = useState<TPositionError>(null)
   const [notSupported, setNotSupported] = useState<boolean>(false)
 

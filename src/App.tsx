@@ -8,14 +8,10 @@ import { HomeContainer } from './styles/pages/HomeStyles'
 function App() {
   const { position } = useLocation()
 
-  const hasPosition = () => !!position
-
-  console.log(position)
-
   return (
     <HomeContainer>
       <Logo />
-      {hasPosition() && <WeatherLayout />}
+      {position && <WeatherLayout position={position} />}
     </HomeContainer>
   )
 }

@@ -1,7 +1,9 @@
 import { ReactNode } from 'react'
 
+import { TPosition } from '../../types/Position'
+
 export interface ILocationContextProps {
-  position: GeolocationPosition | null
+  position?: TPosition
   positionError: GeolocationPositionError | null
   notSupported: boolean
   hasPosition: () => boolean
@@ -11,7 +13,5 @@ export interface ILocationContextProps {
 export interface ILocationProviderProps {
   children: ReactNode
 }
-
-export type TPosition = GeolocationPosition | null
 
 export type TPositionError = GeolocationPositionError | null
