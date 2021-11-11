@@ -5,7 +5,7 @@ export const MainContainer = styled.main(
     width: 100vw;
     height: 100vh;
 
-    background-color: ${colors.dark};
+    background-color: ${colors.light};
 
     display: flex;
     justify-content: center;

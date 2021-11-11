@@ -9,7 +9,7 @@ export default createGlobalStyle(
     }
     body {
       font-family: 'PT Sans', sans-serif;
-      color: ${colors.light};
+      color: ${colors.dark};
     }
   `
 )
