@@ -1,5 +1,6 @@
-import { TPosition } from '../../../../types/Position'
+import { IWeather } from '../../../../types/Weather'
 
 export interface WeatherLayoutProps {
-  position: TPosition
+  weatherData: IWeather
+  refreshWeather: () => void
 }
