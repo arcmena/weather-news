@@ -11,5 +11,10 @@ export default createGlobalStyle(
       font-family: 'PT Sans', sans-serif;
       color: ${colors.dark};
     }
+    button {
+      background: none;
+      border: none;
+      outline: none;
+    }
   `
 )

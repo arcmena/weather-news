@@ -1,5 +1,9 @@
 import { useQuery } from 'react-query'
 
+import Loader from '../../../elements/Loader'
+import WeatherCard from '../../../elements/Weather/WeatherCard'
+import WeatherRefetchButton from '../../../elements/Weather/WeatherRefetchButton'
+
 import { getWeather } from '../../../../services/weatherService'
 
 import { WeatherLayoutProps } from './types'
@@ -13,20 +17,31 @@ export default function WeatherLayout({ position }: WeatherLayoutProps) {
   const {
     data: weatherData,
     isLoading: isWeatherLoading,
-    isError: isWeatherError
-  } = useQuery<IWeather>('weather', () =>
-    getWeather({ lat: latitude, lon: longitude })
+    isError: isWeatherError,
+    refetch: refeshWeather,
+    isRefetching: isWeatherRefreshing
+  } = useQuery<IWeather>(
+    'weather',
+    () => getWeather({ lat: latitude, lon: longitude }),
+    { refetchOnWindowFocus: false }
   )
 
-  if (isWeatherLoading) {
-    return <div>loading...</div>
+  if (isWeatherLoading || isWeatherRefreshing) {
+    return <Loader />
   }
 
   if (isWeatherError) {
     return <div>error</div>
   }
 
-  console.log(weatherData)
+  if (weatherData) {
+    return (
+      <WeatherContainer>
+        <WeatherCard weatherData={weatherData} />
+        <WeatherRefetchButton onRefetch={refeshWeather} />
+      </WeatherContainer>
+    )
+  }
 
-  return <WeatherContainer>asd</WeatherContainer>
+  return null
 }
