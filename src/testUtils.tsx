@@ -19,6 +19,13 @@ export const mockWeatherResponse = {
   name: 'New York'
 }
 
+export const mockCurrentPositionCoords = {
+  coords: {
+    latitude: 51.1,
+    longitude: 45.3
+  }
+}
+
 export const handlers = [
   rest.get('https://api.openweathermap.org/data/2.5/*', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockWeatherResponse))
