@@ -1,6 +1,7 @@
 ### Weather App
 
 This is a weather app! Check the weather at your location!
+[Try It!](https://weather-news.vercel.app/)
 
 ![WeatherAppScreenshot](./assets/weather-news-screenshot.png)
 
