@@ -1,5 +1,6 @@
 import { waitForElementToBeRemoved } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
+
 import HomePage from '.'
 import { theme } from '../../styles/theme'
 
@@ -15,7 +16,7 @@ const Setup = () => (
   </ThemeProvider>
 )
 
-const mockCoords: GeolocationPosition = {
+const mockCoords = {
   coords: {
     ...mockCurrentPositionCoords.coords,
     accuracy: 1,
