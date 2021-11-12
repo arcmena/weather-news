@@ -22,7 +22,7 @@ yarn install
 npm install
 ```
 
-Setup environment variables
+Setup environment variables on `.env.local`
 
 ```bash
 REACT_APP_API_KEY=  # Open Weather Map api key
@@ -38,4 +38,10 @@ Run tests
 
 ```bash
 yarn test
+```
+
+Run storybook docs
+
+```bash
+yarn storybook
 ```
