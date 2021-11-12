@@ -2,6 +2,8 @@
 
 This is a weather app! Check the weather at your location!
 
+![WeatherAppScreenshot](./assets/weather-news-screenshot.png)
+
 ## Getting started
 
 Clone this repo
