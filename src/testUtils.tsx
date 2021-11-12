@@ -2,6 +2,8 @@ import { render } from '@testing-library/react'
 import { rest } from 'msw'
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './styles/theme'
 
 export const mockWeatherResponse = {
   weather: [
@@ -75,11 +77,13 @@ export function renderWithClient(ui: React.ReactElement) {
   }
 }
 
-export function createWrapper() {
-  const testQueryClient = createTestQueryClient()
-  return ({ children }: { children: React.ReactNode }) => (
-    <QueryClientProvider client={testQueryClient}>
-      {children}
-    </QueryClientProvider>
+export function renderWithTheme(ui: React.ReactElement) {
+  const { rerender, ...result } = render(
+    <ThemeProvider theme={theme}>{ui}</ThemeProvider>
   )
+  return {
+    ...result,
+    rerender: (rerenderUi: React.ReactElement) =>
+      rerender(<ThemeProvider theme={theme}>{rerenderUi}</ThemeProvider>)
+  }
 }
