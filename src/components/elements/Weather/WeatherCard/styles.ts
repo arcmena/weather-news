@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components'
 export const WeatherCardContainer = styled.div(
   () => css`
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   `
 )
 
