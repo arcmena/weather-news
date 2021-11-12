@@ -132,4 +132,25 @@ describe('<App />', () => {
     // expect the new weather data to be displayed
     expect(getByTestId('weather-temperature')).toHaveTextContent(newTemperature)
   })
+
+  it('should show error message if error have ocurred on the request', async () => {
+    // setup current position on geolocation
+    mockCurrentPosition()
+
+    // replace server response with error
+    server.use(
+      rest.get('*', (req, res, ctx) => {
+        return res(ctx.status(500))
+      })
+    )
+
+    const { getByTestId } = renderWithClient(<Setup />)
+
+    // wait to load mocked eror
+    await waitForElementToBeRemoved(getByTestId('loader'))
+
+    expect(getByTestId('weather-request-error')).toHaveTextContent(
+      'There was an error, check your network connection and retry.'
+    )
+  })
 })
